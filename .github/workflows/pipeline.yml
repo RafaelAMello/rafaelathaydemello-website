@@ -27,6 +27,7 @@ jobs:
 
 
   build_and_push_docker:
+    needs: deploy_ecr
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
