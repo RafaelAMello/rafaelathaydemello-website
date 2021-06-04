@@ -1,6 +1,6 @@
 FROM python:3.8
 
-WORKDIR /usr/app
+WORKDIR /app
 # USER streamlit #TODO: run as non root user
 
 # Install App requirements
@@ -13,4 +13,4 @@ COPY . .
 # Expose Streamlit port
 EXPOSE 8501
 
-CMD streamlit run main.py
+CMD streamlit run app.py
