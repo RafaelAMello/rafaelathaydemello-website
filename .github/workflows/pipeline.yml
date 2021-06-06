@@ -21,6 +21,7 @@ jobs:
         -e CDK_STACK=StreamlitEcr \
         -e CDK_DEFAULT_ACCOUNT=${{ secrets.CDK_DEFAULT_ACCOUNT }} \
         -e CDK_DEFAULT_REGION=ap-southeast-2 \
+        -e GITHUB_RUN_ID=$GITHUB_RUN_ID \
         cdk-deploy
 
   build_and_push_docker:
@@ -66,4 +67,5 @@ jobs:
         -e CDK_STACK=StreamlitApp \
         -e CDK_DEFAULT_ACCOUNT=${{ secrets.CDK_DEFAULT_ACCOUNT }} \
         -e CDK_DEFAULT_REGION=ap-southeast-2 \
+        -e GITHUB_RUN_ID=$GITHUB_RUN_ID \
         cdk-deploy
