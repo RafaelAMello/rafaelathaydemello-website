@@ -5,4 +5,9 @@ import { StreamlitApp, StreamlitEcr } from '../lib/cdk-stack'
 
 const app = new cdk.App()
 new StreamlitEcr(app, 'StreamlitEcr')
-new StreamlitApp(app, 'StreamlitApp')
+new StreamlitApp(app, 'StreamlitApp', {
+    env: {
+        account: process.env['CDK_DEFAULT_ACCOUNT'],
+        region: process.env['CDK_DEFAULT_REGION'],
+    }
+})
