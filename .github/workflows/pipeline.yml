@@ -1,4 +1,4 @@
-name: Deplpoy Streamlit
+name: Deploy Streamlit
 
 on:
   push:
