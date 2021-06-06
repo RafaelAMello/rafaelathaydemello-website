@@ -12,3 +12,7 @@ For fun and profit
 ```bash
 docker-compose up
 ```
+
+## Registering domain names
+This deployment included everything you need to deploy the app except for the domain name.
+The domain name is managed by route53 and needs to be [provisioned via here](https://console.aws.amazon.com/route53/v2/home#Dashboard)
