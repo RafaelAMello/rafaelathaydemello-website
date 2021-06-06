@@ -21,14 +21,11 @@ st.sidebar.title("Contents")
 
 
 df = pd.DataFrame({
-    'awesome cities' : ['Melbourne', 'Minneapolis', 'Louisville', 'Topeka'],
-    'lat' : [-37.8136, 44.979840,  38.257972, 39.030575],
-    'lon' : [144.9631, -93.272474, -85.765187,  -95.702548]
+    'awesome cities' : ['Melbourne / Australia', 'Florianópolis / Brazil', 'Campinas / Brazil', 'Ottawa / Canada'],
+    'lat' : [-37.8136, -27.5986,  -22.91008, 45.4177916],
+    'lon' : [144.9631, -48.497775, -47.067559,  -75.66981757]
 })
 
-# -36.374472626286966, -144.91669951963823
-# 26.57278274606463, 50.85144319085214
-# -13.257081386404316, 16.574100325225142
 st.pydeck_chart(
     pdk.Deck(
         map_style='mapbox://styles/rafaelathaydemello/ckpl4nrw30rna17odfdcoud6v',
