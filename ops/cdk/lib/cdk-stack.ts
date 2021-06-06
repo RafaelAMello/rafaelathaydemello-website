@@ -29,7 +29,7 @@ export class StreamlitApp extends cdk.Stack {
       }
       )
       new route53.RecordSet(this, 'recordSet', {
-          recordType: route53.RecordType.A,
+          recordType: route53.RecordType.CNAME,
           target: route53.RecordTarget.fromValues(app.loadBalancer.loadBalancerDnsName),
           zone: hostedZone,
         }
