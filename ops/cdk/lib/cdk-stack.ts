@@ -9,7 +9,7 @@ export class StreamlitApp extends cdk.Stack {
     super(scope, id, props)
 
     const ecrRepo = ecr.Repository.fromRepositoryName(this, 'StreamlitRepo', 'personal-website/streamlit-app')
-    const hostedZone = route53.HostedZone.fromHostedZoneId(this, 'HostedZone', 'Z03972782S02DJS3QFINK')
+    const hostedZone = route53.HostedZone.fromLookup(this, 'HostedZone', { domainName: 'rafaelathaydemello.com' })
 
     const app = new ApplicationLoadBalancedFargateService(
       this,
