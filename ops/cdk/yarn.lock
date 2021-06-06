@@ -238,7 +238,7 @@
     constructs "^3.3.69"
     minimatch "^3.0.4"
 
-"@aws-cdk/aws-ecr@1.107.0":
+"@aws-cdk/aws-ecr@1.107.0", "@aws-cdk/aws-ecr@^1.107.0":
   version "1.107.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-ecr/-/aws-ecr-1.107.0.tgz#ada442655fef77106c25e7d7fb14aabea87fbe39"
   integrity sha512-CEalCKxFAIt2r50j0TdoFpOFt2EuV2dzUH6YLUCW8ywLva7RBH1wR/TlnPnqapQZqZM6ouwLQFnRgc88MTLONw==
@@ -269,7 +269,7 @@
     "@aws-cdk/cx-api" "1.107.0"
     constructs "^3.3.69"
 
-"@aws-cdk/aws-ecs@1.107.0":
+"@aws-cdk/aws-ecs@1.107.0", "@aws-cdk/aws-ecs@^1.107.0":
   version "1.107.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-ecs/-/aws-ecs-1.107.0.tgz#3f73cd214d971ee3531b2a7f45dae8dd99f6fd28"
   integrity sha512-3e4y6K1ByiS3tpwNazJxyaK1WLsL5KZoxwL9ANI+aZG/UYLAU0i713CjSjnK28ms20Pp6vdz3HveOM2Kz7KHWQ==
@@ -477,7 +477,7 @@
     "@aws-cdk/region-info" "1.107.0"
     constructs "^3.3.69"
 
-"@aws-cdk/aws-route53@1.107.0":
+"@aws-cdk/aws-route53@1.107.0", "@aws-cdk/aws-route53@^1.107.0":
   version "1.107.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-route53/-/aws-route53-1.107.0.tgz#8bb861f1f956111ac6e208f1e3fa2c8bb297b1f2"
   integrity sha512-gvWD9VsmZV6m+7Phu4DAGpIPy8hf0rZQJIZhvLuffBpICenlDbiW2eH1h1/3O5d6/SBSYLxQ/NbZX18e/RFDGw==
