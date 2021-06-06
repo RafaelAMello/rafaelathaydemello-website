@@ -7,7 +7,7 @@ For fun and profit
 - 🔨 Packaged with [Docker](https://www.docker.com/)
 - 👷 CD with [Github Actions](https://github.com/features/actions)
 - ☁️ Running on [AWS Fargate](https://aws.amazon.com/fargate/)
-- 🚢 Deployed with [cloudformation](https://aws.amazon.com/cloudformation/) and [cdk](https://docs.aws.amazon.com/cdk/latest/guide/home.html)
+- 🚢 Deployed with [cloudformation](https://aws.amazon.com/cloudformation/) and [cdk](https://docs.aws.amazon.com/cdk/latest/guide/home.html) with typescript
 ## Get me up and running
 ```bash
 docker-compose up
