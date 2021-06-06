@@ -5,6 +5,7 @@ import * as route53 from '@aws-cdk/aws-route53'
 import * as route53_targets from '@aws-cdk/aws-route53-targets'
 import { ApplicationLoadBalancedFargateService } from '@aws-cdk/aws-ecs-patterns'
 
+const REPO_NAME = 'personal-website/streamlit'
 interface StreamlitAppProps extends cdk.StackProps {
   imageTag: string
 }
@@ -13,7 +14,7 @@ export class StreamlitApp extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props: StreamlitAppProps) {
     super(scope, id, props)
 
-    const ecrRepo = ecr.Repository.fromRepositoryName(this, 'StreamlitRepo', 'personal-website/streamlit-app')
+    const ecrRepo = ecr.Repository.fromRepositoryName(this, 'StreamlitRepo', REPO_NAME)
     const hostedZone = route53.HostedZone.fromLookup(this, 'HostedZone', { domainName: 'rafaelathaydemello.com' })
 
     const app = new ApplicationLoadBalancedFargateService(
@@ -43,7 +44,7 @@ export class StreamlitEcr extends cdk.Stack {
     super(scope, id, props)
 
     new ecr.Repository(this, 'streamlitECR', {
-      repositoryName: 'personal-website/streamlit',
+      repositoryName: REPO_NAME,
       lifecycleRules: [{
         maxImageCount: 1,
         description: "Retain only the latest images",
