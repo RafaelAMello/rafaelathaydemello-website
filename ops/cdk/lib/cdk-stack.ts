@@ -21,6 +21,7 @@ export class StreamlitApp extends cdk.Stack {
       'streamlitApp',
       {
         desiredCount: 1,
+        minHealthyPercent: 0,
         domainZone: hostedZone,
         taskImageOptions: {
           image: ecs.ContainerImage.fromEcrRepository(ecrRepo, props.imageTag),
