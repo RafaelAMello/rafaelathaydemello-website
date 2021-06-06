@@ -1,4 +1,4 @@
-name: Infrastructure Pipeline
+name: Streamlit App Pipeline
 
 on:
   push:
