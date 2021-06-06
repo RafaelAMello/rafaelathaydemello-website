@@ -17,11 +17,10 @@ export class StreamlitApp extends cdk.Stack {
       {
         desiredCount: 1,
         domainZone: hostedZone,
-        listenerPort: 8051,
         taskImageOptions: {
           image: ecs.ContainerImage.fromEcrRepository(ecrRepo),
           containerName: 'StreamlitApp',
-          containerPort: 8051
+          containerPort: 8501
         }
       }
       )
