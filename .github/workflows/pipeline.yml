@@ -3,8 +3,6 @@ name: Streamlit App Pipeline
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   deploy_ecr:
