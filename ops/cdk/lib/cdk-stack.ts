@@ -41,7 +41,7 @@ export class StreamlitEcr extends cdk.Stack {
       repositoryName: 'personal-website/streamlit',
       lifecycleRules: [{
         maxImageCount: 1,
-        description: "Retain the 50 latest images",
+        description: "Retain only the latest images",
       }]
     })
 

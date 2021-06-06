@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: "Deploy app to AWS"
+    - name: Deploy ECR to AWS
       run: |
         cd ops/cdk
         docker build . -t cdk-deploy
@@ -53,7 +53,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: "Deploy app to AWS"
+    - name: Deploy App to AWS
       run: |
         cd ops/cdk
         docker build . -t cdk-deploy
