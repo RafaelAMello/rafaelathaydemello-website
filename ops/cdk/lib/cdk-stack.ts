@@ -2,6 +2,7 @@ import * as cdk from '@aws-cdk/core'
 import * as ecs from '@aws-cdk/aws-ecs'
 import * as ecr from '@aws-cdk/aws-ecr'
 import * as route53 from '@aws-cdk/aws-route53'
+import * as route53_targets from '@aws-cdk/aws-route53-targets'
 import { ApplicationLoadBalancedFargateService } from '@aws-cdk/aws-ecs-patterns'
 
 interface StreamlitAppProps extends cdk.StackProps {
@@ -26,14 +27,13 @@ export class StreamlitApp extends cdk.Stack {
           containerName: 'StreamlitApp',
           containerPort: 8501
         }
-      }
-      )
+      })
+
       new route53.RecordSet(this, 'recordSet', {
           recordType: route53.RecordType.A,
-          target: route53.RecordTarget.fromValues(app.loadBalancer.loadBalancerDnsName),
+          target: route53.RecordTarget.fromAlias(new route53_targets.LoadBalancerTarget(app.loadBalancer)),
           zone: hostedZone,
-        }
-        )
+        })
   }
 }
 
