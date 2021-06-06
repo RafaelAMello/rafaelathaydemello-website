@@ -9,5 +9,6 @@ new StreamlitApp(app, 'StreamlitApp', {
     env: {
         account: process.env['CDK_DEFAULT_ACCOUNT'],
         region: process.env['CDK_DEFAULT_REGION'],
-    }
+    },
+    imageTag: process.env['GITHUB_RUN_ID'] || 'latest',
 })

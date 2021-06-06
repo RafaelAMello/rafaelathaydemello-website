@@ -4,8 +4,12 @@ import * as ecr from '@aws-cdk/aws-ecr'
 import * as route53 from '@aws-cdk/aws-route53'
 import { ApplicationLoadBalancedFargateService } from '@aws-cdk/aws-ecs-patterns'
 
+interface StreamlitAppProps extends cdk.StackProps {
+  imageTag: string
+}
+
 export class StreamlitApp extends cdk.Stack {
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: cdk.Construct, id: string, props: StreamlitAppProps) {
     super(scope, id, props)
 
     const ecrRepo = ecr.Repository.fromRepositoryName(this, 'StreamlitRepo', 'personal-website/streamlit-app')
