@@ -8,5 +8,6 @@ st.markdown("""<style>#MainMenu {visibility: hidden;} footer {visibility: hidden
 My name is Rafael Mello, I work as a Data Engineer in Melbourne, Australia
 
 I made this website mostly mostly for fun and a little for profit
+## About Me
 '''
 st.sidebar.title("Contents")
