@@ -23,7 +23,7 @@ export class StreamlitApp extends cdk.Stack {
         desiredCount: 1,
         domainZone: hostedZone,
         taskImageOptions: {
-          image: ecs.ContainerImage.fromEcrRepository(ecrRepo),
+          image: ecs.ContainerImage.fromEcrRepository(ecrRepo, props.imageTag),
           containerName: 'StreamlitApp',
           containerPort: 8501
         }
