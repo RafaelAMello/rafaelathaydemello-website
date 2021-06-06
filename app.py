@@ -11,6 +11,17 @@ st.markdown("""<style>#MainMenu {visibility: hidden;} footer {visibility: hidden
 My name is Rafael Mello, I work as a Data Engineer in Melbourne, Australia
 
 I made this website mostly mostly for fun and a little for profit
+
+## About the tech stack
+Here is what I used:
+- 🖥️ Webapp with python & [Streamlit](https://streamlit.io/)
+- 🔨 Packaged with [Docker](https://www.docker.com/)
+- 👷 CD with [Github Actions](https://github.com/features/actions)
+- ☁️ Running on [AWS Fargate](https://aws.amazon.com/fargate/)
+- 🚢 Deployed with [cdk](https://docs.aws.amazon.com/cdk/latest/guide/home.html) on typescript
+- 🧑‍💻 Feel free to steal this code on [Github](https://github.com/RafaelAMello/rafaelathaydemello-website)
+
+
 ## About Me
 **Headline is:** I am passionate and excited data engineer and I love nerding out on data products.
 I like to think about how companies use their data in creative ways but I also like thinking about security, privacy and fair ml.
@@ -21,11 +32,13 @@ st.sidebar.title("Contents")
 
 
 df = pd.DataFrame({
-    'awesome cities' : ['Melbourne / Australia', 'Florianópolis / Brazil', 'Campinas / Brazil', 'Ottawa / Canada'],
-    'lat' : [-37.8136, -27.5986,  -22.91008, 45.4177916],
-    'lon' : [144.9631, -48.497775, -47.067559,  -75.66981757]
+    'location' : ['Melbourne / Australia', 'Florianópolis / Brazil', 'Campinas / Brazil', 'Ottawa / Canada', 'HotDoc'],
+    'blue' : [255, 255, 255, 255, 0],
+    'lat' : [-37.8136, -27.5986,  -22.91008, 45.4177916, -37.820774929870204],
+    'lon' : [144.9631, -48.497775, -47.067559,  -75.66981757, 144.9569359345779]
 })
 
+# -37.820774929870204, 144.9569359345779
 st.pydeck_chart(
     pdk.Deck(
         map_style='mapbox://styles/rafaelathaydemello/ckpl4nrw30rna17odfdcoud6v',
@@ -39,11 +52,11 @@ st.pydeck_chart(
             'ScatterplotLayer',
             data=df,
             filled=True,
-            # pickable=True,
+            pickable=True,
             get_position='[lon, lat]',
-            get_fill_color=[0, 0, 255],
+            get_fill_color="[0, 0, blue]",
             radius_min_pixels=6,
             radius_max_pixels=7,
         )],
-        # tooltip={'hey' : "come here"}
+        tooltip={'text' : "{location}"}
         ))
