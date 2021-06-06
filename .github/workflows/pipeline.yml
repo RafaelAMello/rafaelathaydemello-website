@@ -1,4 +1,4 @@
-name: Streamlit App Pipeline
+name: Deplpoy Streamlit
 
 on:
   push:
