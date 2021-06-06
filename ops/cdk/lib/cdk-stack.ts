@@ -26,7 +26,7 @@ export class StreamlitApp extends cdk.Stack {
       )
       new route53.RecordSet(this, 'recordSet', {
           recordType: route53.RecordType.A,
-          target: route53.RecordTarget.fromIpAddresses(app.loadBalancer.loadBalancerDnsName),
+          target: route53.RecordTarget.fromValues(app.loadBalancer.loadBalancerDnsName),
           zone: hostedZone,
         }
         )
