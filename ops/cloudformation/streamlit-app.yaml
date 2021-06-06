@@ -1,6 +1,0 @@
-
-Resources:
-  StreamLitAppEcr:
-    Type: AWS::ECR::Repository
-    Properties:
-      RepositoryName: personal-website/streamlit-app

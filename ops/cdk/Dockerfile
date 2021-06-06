@@ -7,4 +7,4 @@ COPY package.json yarn.lock ./
 RUN yarn install
 
 COPY . .
-CMD yarn run cdk deploy --require-approval never --verbose
+CMD yarn run cdk deploy $CDK_STACK --require-approval never --verbose

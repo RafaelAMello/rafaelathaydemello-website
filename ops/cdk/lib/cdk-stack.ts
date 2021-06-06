@@ -11,7 +11,7 @@ export class StreamlitApp extends cdk.Stack {
     const ecrRepo = ecr.Repository.fromRepositoryName(this, 'StreamlitRepo', 'personal-website/streamlit-app')
     const hostedZone = route53.HostedZone.fromHostedZoneId(this, 'HostedZone', 'Z03972782S02DJS3QFINK')
 
-    new ApplicationLoadBalancedFargateService(
+    const app = new ApplicationLoadBalancedFargateService(
       this,
       'streamlitApp',
       {
@@ -24,5 +24,26 @@ export class StreamlitApp extends cdk.Stack {
         }
       }
       )
+      new route53.RecordSet(this, 'recordSet', {
+          recordType: route53.RecordType.A,
+          target: route53.RecordTarget.fromIpAddresses(app.loadBalancer.loadBalancerDnsName),
+          zone: hostedZone,
+        }
+        )
+  }
+}
+
+export class StreamlitEcr extends cdk.Stack {
+  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+    super(scope, id, props)
+
+    new ecr.Repository(this, 'streamlitECR', {
+      repositoryName: 'personal-website/streamlit',
+      lifecycleRules: [{
+        maxImageCount: 1,
+        description: "Retain the 50 latest images",
+      }]
+    })
+
   }
 }
