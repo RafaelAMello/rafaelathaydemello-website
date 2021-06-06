@@ -26,7 +26,6 @@ jobs:
         template: ops/cloudformation/streamlit-app.yaml
         no-fail-on-empty-changeset: "1"
 
-
   build_and_push_docker:
     needs: deploy_ecr
     runs-on: ubuntu-latest
@@ -51,3 +50,17 @@ jobs:
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+
+  deploy_app:
+    needs: build_and_push_docker
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: "Deploy app to AWS"
+    - run: |
+        AWS_REGION=ap-southeast-2 \
+        AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} \
+        AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} \
+          docker-compose -f ops/cdk/docker-compose.yml run deploy

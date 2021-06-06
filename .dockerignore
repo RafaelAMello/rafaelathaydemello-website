@@ -1,0 +1,6 @@
+.git
+__pycache__
+.vscode
+cdk.out
+node_modules
+python
