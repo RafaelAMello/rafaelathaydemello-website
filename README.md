@@ -6,7 +6,7 @@ For fun and profit
 - 🖥️ Webapp with python & [Streamlit](https://streamlit.io/)
 - 🔨 Packaged with [Docker](https://www.docker.com/)
 - 👷 CD with [Github Actions](https://github.com/features/actions)
-- ☁️ Running on [AWS Fargate](https://aws.amazon.com/fargate/) & deployed with [cdk](https://docs.aws.amazon.com/cdk/latest/guide/home.html)
+- ☁️ Running on [AWS Fargate](https://aws.amazon.com/fargate/) & deployed with [cloudformation](https://aws.amazon.com/cloudformation/) and [cdk](https://docs.aws.amazon.com/cdk/latest/guide/home.html)
 ## Get me up and running
 ```bash
 docker-compose up
