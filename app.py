@@ -18,6 +18,7 @@ pages["About Me"] = about_me
 pages["Finance stuff"] = finance
 pages["The Tech: Deploying Streamlit"] = tech_stack
 pages["Data Science Adventures"] = data_science_adventures
+# TODO: Contact info
 
 CHOICE = st.sidebar.radio("Go to", options=list(pages.keys()))
 pages[CHOICE]()
