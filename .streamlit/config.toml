@@ -5,6 +5,7 @@ address = "0.0.0.0"
 
 [browser]
 serverPort = "8501"
+gatherUsageStats = false
 
 [theme]
 primaryColor="#d33682"
