@@ -28,8 +28,8 @@ def about_me():
 
     df = load_data()
     col1, col2 = st.beta_columns(2)
-    western = col1.button("Focus on Eastern Hemisphere")
     eastern = col2.button("Focus on Western Hemisphere")
+    western = col1.button("Focus on Eastern Hemisphere")
     western_start_point = dict(
         latitude=-37.8136,
         longitude=144.9631,
