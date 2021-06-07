@@ -21,7 +21,8 @@ export class StreamlitApp extends cdk.Stack {
     const hostedZone = route53.HostedZone.fromLookup(this, 'HostedZone', { domainName: domainName })
     const cert = new certificatemanager.DnsValidatedCertificate(this, 'cert', {
       domainName: domainName,
-      hostedZone: hostedZone
+      hostedZone: hostedZone,
+      subjectAlternativeNames: [`www.${domainName}`]
     })
 
     const app = new ApplicationLoadBalancedFargateService(
@@ -32,6 +33,7 @@ export class StreamlitApp extends cdk.Stack {
         minHealthyPercent: 0,
         domainZone: hostedZone,
         certificate: cert,
+        redirectHTTP: true,
         taskImageOptions: {
           image: ecs.ContainerImage.fromEcrRepository(ecrRepo, props.imageTag),
           containerName: 'StreamlitApp',
