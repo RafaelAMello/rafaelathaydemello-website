@@ -1,0 +1,74 @@
+[
+    {
+        "location" : "Melbourne",
+        "country" : "Australia",
+        "desc" : "I live here! Not exactly here though, I am not crazy enough to put my address online",
+        "start_year" : 2008,
+        "end_year" : null,
+        "dot_color": [0, 0, 255],
+        "lat" : -37.8136,
+        "lon" : 144.9631
+    },
+    {
+        "location" : "Florianópolis",
+        "country" : "Brazil",
+        "desc" : "I lived here for a while, this place has beautiful beaches",
+        "start_year" : 2004,
+        "end_year" : 2008,
+        "dot_color": [0, 0, 255],
+        "lat" : -27.5986,
+        "lon" : -48.497775
+    },
+    {
+        "location" : "Campinas",
+        "country" : "Brazil",
+        "start_year" : 1995,
+        "end_year" : 1997,
+        "desc" : "This is where I am from - kinda consider this home",
+        "dot_color": [0, 0, 255],
+        "lat" : -22.91008,
+        "lon" : -47.067559
+    },
+    {
+        "location" : "Ottawa",
+        "country" : "Canada",
+        "start_year" : 1997,
+        "end_year" : 2004,
+        "desc" : "I grew up here building snowmen",
+        "dot_color": [0, 0, 255],
+        "lat" : 45.4177916,
+        "lon" : -75.66981757
+    },
+    {
+        "location": "University of Melbourne",
+        "country": "Australia",
+        "desc": "I studied here for a while learning Economics, Management & Finance",
+        "dot_color": [0, 128, 0],
+        "lat" : -37.801588523599506,
+        "lon" : 144.9592842083118
+    },
+    {
+        "location" : "HotDoc",
+        "country" : "Australia",
+        "desc" : "This was one of the first places I worked, great place with great people",
+        "dot_color": [0, 0, 0],
+        "lat" : -37.820774929870204,
+        "lon" : 144.9569359345779
+    },
+    {
+        "location": "Culture Amp",
+        "country": "Australia",
+        "desc" : "Currently where I work!",
+        "dot_color" : [0, 0, 0],
+        "lat": -37.8233993807296,
+        "lon" : 144.99091604061704
+    },
+    {
+        "location": "Movember Foundation",
+        "country": "Australia",
+        "desc" : "Worked here for a little while",
+        "dot_color" : [0, 0, 0],
+        "lat": -37.81925110451824,
+        "lon" : 144.9954359117813
+    }
+]
