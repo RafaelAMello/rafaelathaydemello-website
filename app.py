@@ -1,6 +1,7 @@
 from collections import OrderedDict
 
 import streamlit as st
+from streamlit.components.v1 import html
 
 from src.homepage import homepage
 from src.finance import finance
@@ -10,7 +11,8 @@ from src.data_science import data_science_adventures
 
 st.set_page_config(page_title="Raf's Website", page_icon="📊")
 # Hide footer and menu, No need in my website
-st.markdown("""<style>#MainMenu {visibility: hidden;} footer {visibility: hidden;} </style>""", unsafe_allow_html=True)
+html("""<style>#MainMenu {visibility: hidden;} footer {visibility: hidden;} </style>""", width=0, height=0)
+
 st.sidebar.title("Navigation")
 pages = OrderedDict()
 pages["Homepage"] = homepage
