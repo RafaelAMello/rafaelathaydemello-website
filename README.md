@@ -18,3 +18,7 @@ docker-compose up
 ## Registering domain names
 This deployment included everything you need to deploy the app except for the domain name.
 The domain name is managed by route53 and needs to be [provisioned via here](https://console.aws.amazon.com/route53/v2/home#Dashboard)
+
+## SSL and Generating certificates
+This is managed separately from the cdk app.
+To generate ssl certificates I used the [aws certificate manager here](https://ap-southeast-2.console.aws.amazon.com/acm/home?region=ap-southeast-2#/)
