@@ -3,6 +3,7 @@ import * as ecs from '@aws-cdk/aws-ecs'
 import * as ecr from '@aws-cdk/aws-ecr'
 import * as route53 from '@aws-cdk/aws-route53'
 import * as route53_targets from '@aws-cdk/aws-route53-targets'
+import * as certificatemanager from '@aws-cdk/aws-certificatemanager'
 import { ApplicationLoadBalancedFargateService } from '@aws-cdk/aws-ecs-patterns'
 
 const REPO_NAME = 'personal-website/streamlit'
@@ -14,8 +15,14 @@ export class StreamlitApp extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props: StreamlitAppProps) {
     super(scope, id, props)
 
+    const domainName = 'rafaelathaydemello.com'
+
     const ecrRepo = ecr.Repository.fromRepositoryName(this, 'StreamlitRepo', REPO_NAME)
-    const hostedZone = route53.HostedZone.fromLookup(this, 'HostedZone', { domainName: 'rafaelathaydemello.com' })
+    const hostedZone = route53.HostedZone.fromLookup(this, 'HostedZone', { domainName: domainName })
+    const cert = new certificatemanager.DnsValidatedCertificate(this, 'cert', {
+      domainName: domainName,
+      hostedZone: hostedZone
+    })
 
     const app = new ApplicationLoadBalancedFargateService(
       this,
@@ -24,6 +31,7 @@ export class StreamlitApp extends cdk.Stack {
         desiredCount: 1,
         minHealthyPercent: 0,
         domainZone: hostedZone,
+        certificate: cert,
         taskImageOptions: {
           image: ecs.ContainerImage.fromEcrRepository(ecrRepo, props.imageTag),
           containerName: 'StreamlitApp',
