@@ -22,7 +22,6 @@ export class StreamlitApp extends cdk.Stack {
     const cert = new certificatemanager.DnsValidatedCertificate(this, 'cert', {
       domainName: domainName,
       hostedZone: hostedZone,
-      subjectAlternativeNames: [`www.${domainName}`]
     })
 
     const app = new ApplicationLoadBalancedFargateService(
