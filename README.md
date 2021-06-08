@@ -5,7 +5,7 @@ For fun and profit
 ## Tech stack
 - 🖥️ Webapp with python & [Streamlit](https://streamlit.io/)
 - 🗺️ Mapping with [Pydeck](https://deckgl.readthedocs.io/en/latest/) & [Mapbox](https://www.mapbox.com/)
-- 📈 Graphing with [Altair](https://altair-viz.github.io/)
+- 📈 Graphing with [Altair](https://altair-viz.github.io/) and [plotly](https://plotly.com/python/)
 - 🔨 Packaged with [Docker](https://www.docker.com/)
 - 👷 CD with [Github Actions](https://github.com/features/actions)
 - ☁️ Running on [AWS Fargate](https://aws.amazon.com/fargate/)
