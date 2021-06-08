@@ -12,7 +12,7 @@ def homepage():
     - **About Me** should tell you a little about yours truly, some mapping, some graphing and some jokes
     - **Finance** is where I talk about finance, I share some highlights of what I have learnt and talk about investing
     - **Deploying Streamlit** is where I talk about how I got this App up and running, I even have some delicious AWS architecture diagrams for the nerds and up to date costs
-    - **Deploying Streamlit**
+    - **Data Science Adventures** is me documenting my misguded attempts to do data science, some of it goes well, most of it does not
 
     ## About the tech stack
     Here is what I used:
