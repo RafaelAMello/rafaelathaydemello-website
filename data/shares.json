@@ -1,0 +1,47 @@
+[
+ {
+    "name" : "FAIR",
+    "type" : "share",
+    "percentage" :	0.0899
+ },
+ {
+    "name" : "VGE",
+    "type" : "share",
+    "percentage" :	0.1124
+ },
+ {
+    "name" : "IXJ",
+    "type" : "share",
+    "percentage" :	0.0449
+ },
+ {
+    "name" : "RARI",
+    "type" : "share",
+    "percentage" :	0.2021
+ },
+ {
+    "name" : "ETHI",
+    "type" : "share",
+    "percentage" :	0.1124
+ },
+ {
+    "name" : "PIA",
+    "type" : "share",
+    "percentage" :	0.0545
+ },
+ {
+    "name" : "VESG",
+    "type" : "share",
+    "percentage" :	0.1279
+ },
+ {
+    "name" : "IMPQ",
+    "type" : "share",
+    "percentage" :	0.1453
+ },
+ {
+    "name" : "Cash",
+    "type" : "cash",
+    "percentage" :	0.1106
+ }
+]
