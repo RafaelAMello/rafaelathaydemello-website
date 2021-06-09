@@ -1,6 +1,8 @@
 import * as cdk from '@aws-cdk/core'
 import * as ecs from '@aws-cdk/aws-ecs'
 import * as ecr from '@aws-cdk/aws-ecr'
+import * as iam from '@aws-cdk/aws-iam'
+import * as ssm from '@aws-cdk/aws-ssm'
 import * as route53 from '@aws-cdk/aws-route53'
 import * as route53_targets from '@aws-cdk/aws-route53-targets'
 import * as certificatemanager from '@aws-cdk/aws-certificatemanager'
@@ -38,6 +40,20 @@ export class StreamlitApp extends cdk.Stack {
           containerName: 'StreamlitApp',
           containerPort: 8501
         }
+      })
+
+      app.taskDefinition.executionRole?.addToPrincipalPolicy(
+        new iam.PolicyStatement({
+          effect: iam.Effect.ALLOW,
+          actions: [
+            "ssm:GetParameters",
+          ],
+          resources: [`arn:aws:ssm:${this.region}:${this.account}:parameter/*`]
+      }))
+
+      new ssm.StringParameter(this, 'SlackWebhookURL', {
+        parameterName: 'slackWebhookUrl',
+        stringValue: '',
       })
 
       new route53.RecordSet(this, 'recordSet', {
