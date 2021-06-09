@@ -29,7 +29,7 @@ export class StreamlitApp extends cdk.Stack {
     const webhookUrlSecret = ecs.Secret.fromSsmParameter(
         new ssm.StringParameter(this, 'SlackWebhookURL', {
           parameterName: 'slackWebhookUrl',
-          stringValue: '',
+          stringValue: 'https://hooks.slack.com/services/1111/111/111',
         })
     )
 
