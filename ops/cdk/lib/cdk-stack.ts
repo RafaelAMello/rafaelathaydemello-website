@@ -26,6 +26,13 @@ export class StreamlitApp extends cdk.Stack {
       hostedZone: hostedZone,
     })
 
+    const webhookUrlSecret = ecs.Secret.fromSsmParameter(
+        new ssm.StringParameter(this, 'SlackWebhookURL', {
+          parameterName: 'slackWebhookUrl',
+          stringValue: '',
+        })
+    )
+
     const app = new ApplicationLoadBalancedFargateService(
       this,
       'streamlitApp',
@@ -38,23 +45,14 @@ export class StreamlitApp extends cdk.Stack {
         taskImageOptions: {
           image: ecs.ContainerImage.fromEcrRepository(ecrRepo, props.imageTag),
           containerName: 'StreamlitApp',
-          containerPort: 8501
+          containerPort: 8501,
+          secrets: {
+            'SLACK_URL' : webhookUrlSecret
+          }
         }
       })
 
-      app.taskDefinition.executionRole?.addToPrincipalPolicy(
-        new iam.PolicyStatement({
-          effect: iam.Effect.ALLOW,
-          actions: [
-            "ssm:GetParameters",
-          ],
-          resources: [`arn:aws:ssm:${this.region}:${this.account}:parameter/*`]
-      }))
-
-      new ssm.StringParameter(this, 'SlackWebhookURL', {
-        parameterName: 'slackWebhookUrl',
-        stringValue: '',
-      })
+      webhookUrlSecret.grantRead(app.taskDefinition.taskRole)
 
       new route53.RecordSet(this, 'recordSet', {
           recordType: route53.RecordType.A,
