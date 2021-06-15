@@ -42,6 +42,7 @@ export class StreamlitApp extends cdk.Stack {
         domainZone: hostedZone,
         certificate: cert,
         redirectHTTP: true,
+        assignPublicIp: true,
         taskImageOptions: {
           image: ecs.ContainerImage.fromEcrRepository(ecrRepo, props.imageTag),
           containerName: 'StreamlitApp',
@@ -50,9 +51,9 @@ export class StreamlitApp extends cdk.Stack {
             'SLACK_URL' : webhookUrlSecret
           }
         },
-        // taskSubnets: {
-        //   subnetType: ec2.SubnetType.PUBLIC
-        // }
+        taskSubnets: {
+          subnetType: ec2.SubnetType.PUBLIC
+        }
       })
 
       if (app.taskDefinition.executionRole === undefined) {
