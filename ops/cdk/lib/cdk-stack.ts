@@ -1,7 +1,7 @@
 import * as cdk from '@aws-cdk/core'
 import * as ecs from '@aws-cdk/aws-ecs'
 import * as ecr from '@aws-cdk/aws-ecr'
-import * as iam from '@aws-cdk/aws-iam'
+import * as ec2 from '@aws-cdk/aws-ec2'
 import * as ssm from '@aws-cdk/aws-ssm'
 import * as route53 from '@aws-cdk/aws-route53'
 import * as route53_targets from '@aws-cdk/aws-route53-targets'
@@ -49,6 +49,9 @@ export class StreamlitApp extends cdk.Stack {
           secrets: {
             'SLACK_URL' : webhookUrlSecret
           }
+        },
+        taskSubnets: {
+          subnetType: ec2.SubnetType.PUBLIC
         }
       })
 
