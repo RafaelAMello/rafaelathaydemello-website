@@ -24,7 +24,7 @@ jobs:
         -e GITHUB_RUN_ID=$GITHUB_RUN_ID \
         cdk-deploy
 
-    - name: Deploy CostAnd to AWS
+    - name: Deploy CostAndBillingReport to AWS
       run: |
         cd ops/cdk
         docker build . -t cdk-deploy
