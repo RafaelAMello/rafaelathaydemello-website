@@ -55,13 +55,27 @@ export class StreamlitApp extends cdk.Stack {
         }
       })
 
-      webhookUrlSecret.grantRead(app.taskDefinition.taskRole)
+      if (app.taskDefinition.executionRole === undefined) {
+        throw new Error("Execution role needs to be defined")
+      }
+
+      webhookUrlSecret.grantRead(app.taskDefinition.executionRole)
 
       new route53.RecordSet(this, 'recordSet', {
           recordType: route53.RecordType.A,
           target: route53.RecordTarget.fromAlias(new route53_targets.LoadBalancerTarget(app.loadBalancer)),
           zone: hostedZone,
         })
+
+      new ssm.StringParameter(this, 'EcsClusterName', {
+        parameterName: 'EcsClusterName',
+        stringValue: app.cluster.clusterName,
+      })
+
+      new ssm.StringParameter(this, 'EcsServiceName', {
+        parameterName: 'EcsServiceName',
+        stringValue: app.service.serviceName,
+      })
   }
 }
 
