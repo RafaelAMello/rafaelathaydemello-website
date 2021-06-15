@@ -50,9 +50,9 @@ export class StreamlitApp extends cdk.Stack {
             'SLACK_URL' : webhookUrlSecret
           }
         },
-        taskSubnets: {
-          subnetType: ec2.SubnetType.PUBLIC
-        }
+        // taskSubnets: {
+        //   subnetType: ec2.SubnetType.PUBLIC
+        // }
       })
 
       if (app.taskDefinition.executionRole === undefined) {
