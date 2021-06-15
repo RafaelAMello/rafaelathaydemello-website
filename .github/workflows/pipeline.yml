@@ -24,6 +24,20 @@ jobs:
         -e GITHUB_RUN_ID=$GITHUB_RUN_ID \
         cdk-deploy
 
+    - name: Deploy CostAnd to AWS
+      run: |
+        cd ops/cdk
+        docker build . -t cdk-deploy
+        docker run \
+        -e AWS_REGION=ap-southeast-2 \
+        -e AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} \
+        -e AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} \
+        -e CDK_STACK=CostAndBillingReport \
+        -e CDK_DEFAULT_ACCOUNT=${{ secrets.CDK_DEFAULT_ACCOUNT }} \
+        -e CDK_DEFAULT_REGION=ap-southeast-2 \
+        -e GITHUB_RUN_ID=$GITHUB_RUN_ID \
+        cdk-deploy
+
   build_and_push_docker:
     needs: deploy_ecr
     runs-on: ubuntu-latest

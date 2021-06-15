@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 import 'source-map-support/register'
 import * as cdk from '@aws-cdk/core'
+
 import { StreamlitApp, StreamlitEcr } from '../lib/cdk-stack'
+import { CostAndBillingReport } from '../lib/cost-and-billing-report'
 
 const getEnvVariable = (envVarName: string): string => {
     const envVar = process.env[envVarName]
@@ -20,3 +22,4 @@ new StreamlitApp(app, 'StreamlitApp', {
     },
     imageTag: getEnvVariable('GITHUB_RUN_ID')
 })
+new CostAndBillingReport(app, 'CostAndBillingReport')
