@@ -20,6 +20,5 @@ new StreamlitApp(app, 'StreamlitApp', {
         account: getEnvVariable('CDK_DEFAULT_ACCOUNT'),
         region: getEnvVariable('CDK_DEFAULT_REGION'),
     },
-    imageTag: getEnvVariable('GITHUB_RUN_ID')
 })
 new CostAndBillingReport(app, 'CostAndBillingReport')

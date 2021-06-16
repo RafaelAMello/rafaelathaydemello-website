@@ -9,12 +9,8 @@ import * as certificatemanager from '@aws-cdk/aws-certificatemanager'
 import { ApplicationLoadBalancedFargateService } from '@aws-cdk/aws-ecs-patterns'
 
 const REPO_NAME = 'personal-website/streamlit'
-interface StreamlitAppProps extends cdk.StackProps {
-  imageTag: string
-}
-
 export class StreamlitApp extends cdk.Stack {
-  constructor(scope: cdk.Construct, id: string, props: StreamlitAppProps) {
+  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props)
 
     const domainName = 'rafaelathaydemello.com'
@@ -44,7 +40,7 @@ export class StreamlitApp extends cdk.Stack {
         redirectHTTP: true,
         assignPublicIp: true,
         taskImageOptions: {
-          image: ecs.ContainerImage.fromEcrRepository(ecrRepo, props.imageTag),
+          image: ecs.ContainerImage.fromEcrRepository(ecrRepo),
           containerName: 'StreamlitApp',
           containerPort: 8501,
           secrets: {
